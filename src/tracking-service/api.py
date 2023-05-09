@@ -10,8 +10,8 @@ app = Flask(__name__)
 contract_address = ""
 
 
-@app.route('/api/add_message/<uuid>', methods=['GET', 'POST'])
-def add_message(uuid):
+@app.route('/api/v1/create_contract/<uuid>', methods=['GET', 'POST'])
+def create_contract(uuid):
     content = request.json
 
     accounts = w3.eth.accounts
@@ -26,14 +26,23 @@ def add_message(uuid):
     buyer = "0xD89C9c336B67E8bAC38e057b18f8b4be155a0a3D"
     logisticsProvider = "0xD89C9c336B67E8bAC38e057b18f8b4be155a0a3D"
 
-    tx_hash = contract.functions.createContract(name, quantity, price, deliveryDate, buyer, logisticsProvider).transact({
-        'from': from_address, 'gas': 1000000})
+    tx_hash = contract.functions.createContract(name, quantity, price, deliveryDate, buyer, logisticsProvider).transact(
+        {'from': from_address, 'gas': 1000000})
 
     receipt = w3.eth.waitForTransactionReceipt(tx_hash)
     print(dict(receipt))
 
     print(content)
     return jsonify({"uuid": uuid})
+
+
+@app.route('/api/v1/contract_ids', methods=['GET', 'POST'])
+def contract_ids():
+
+    ids = contract.functions.viewContractIds().call()
+    print(ids)
+
+    return jsonify(ids)
 
 
 load_dotenv()
@@ -64,8 +73,6 @@ def load_contract():
 
 # Load the contract
 contract = load_contract()
-
-print("AAAAAAAAAAAAAAAAAAAAAAAAAAA\n")
 
 # Start the application
 if __name__ == '__main__':
