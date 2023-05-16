@@ -1,0 +1,384 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "_id",
+                "type": "bytes32"
+            }
+        ],
+        "name": "confirmTransaction",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "bytes32",
+                "name": "id",
+                "type": "bytes32"
+            }
+        ],
+        "name": "ContractCreated",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "_name",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_quantity",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_price",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_deliveryDate",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address payable",
+                "name": "_buyer",
+                "type": "address"
+            },
+            {
+                "internalType": "address payable",
+                "name": "_logisticsProvider",
+                "type": "address"
+            }
+        ],
+        "name": "createContract",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "bytes32",
+                "name": "id",
+                "type": "bytes32"
+            }
+        ],
+        "name": "DeliveryReceived",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "bytes32",
+                "name": "id",
+                "type": "bytes32"
+            }
+        ],
+        "name": "PaymentReceived",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "_id",
+                "type": "bytes32"
+            }
+        ],
+        "name": "recordDelivery",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "_id",
+                "type": "bytes32"
+            }
+        ],
+        "name": "sendPayment",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "contractCount",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "name": "contracts",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "string",
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "quantity",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "price",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "deliveryDate",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct SupplyChain.Product",
+                "name": "product",
+                "type": "tuple"
+            },
+            {
+                "internalType": "address payable",
+                "name": "supplier",
+                "type": "address"
+            },
+            {
+                "internalType": "address payable",
+                "name": "buyer",
+                "type": "address"
+            },
+            {
+                "internalType": "address payable",
+                "name": "logisticsProvider",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "payment",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "paymentDone",
+                "type": "bool"
+            },
+            {
+                "internalType": "bool",
+                "name": "deliveryDone",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "contractId",
+                "type": "bytes32"
+            }
+        ],
+        "name": "getContract",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "string",
+                                "name": "name",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "quantity",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "price",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "deliveryDate",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct SupplyChain.Product",
+                        "name": "product",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "address payable",
+                        "name": "supplier",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address payable",
+                        "name": "buyer",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address payable",
+                        "name": "logisticsProvider",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "payment",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "paymentDone",
+                        "type": "bool"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "deliveryDone",
+                        "type": "bool"
+                    }
+                ],
+                "internalType": "struct SupplyChain.Contract",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "index",
+                "type": "uint256"
+            }
+        ],
+        "name": "getContractByIndex",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "string",
+                                "name": "name",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "quantity",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "price",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "deliveryDate",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct SupplyChain.Product",
+                        "name": "product",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "address payable",
+                        "name": "supplier",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address payable",
+                        "name": "buyer",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address payable",
+                        "name": "logisticsProvider",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "payment",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "paymentDone",
+                        "type": "bool"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "deliveryDone",
+                        "type": "bool"
+                    }
+                ],
+                "internalType": "struct SupplyChain.Contract",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getContractCount",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "viewContractIds",
+        "outputs": [
+            {
+                "internalType": "bytes32[]",
+                "name": "",
+                "type": "bytes32[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
