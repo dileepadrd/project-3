@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+      body {
+        background-color: #011327;
+      }
+    </style>  
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Travel Time</title>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/project_3_ml_with_title_1.jpg') }}" alt="Project Image" class="img-fluid">
+        <h1>Travel Time Calculator</h1>
+        <form action="/" method="post" class="mt-4">
+            <div class="mb-3">
+                <label for="from" class="form-label">From:</label>
+                <input type="text" id="from" name="from" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="to" class="form-label">To:</label>
+                <input type="text" id="to" name="to" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
